@@ -93,7 +93,7 @@
         
         },
         
-        lazygrid_smekta: function smekta(pattern,vars) {
+        lazygrid_smekta: function (pattern,vars) {
             var key,re;
             
             for (key in vars)
@@ -113,7 +113,7 @@
                             var loopresult='';
                             for (var k=0;k<vars[key].length;k++)
                             {
-                                loopresult+=smekta(loopcontents,vars[key][k]);
+                                loopresult+=$.lazygrid_smekta(loopcontents,vars[key][k]);
                             }
                             pattern=pattern.replace(loopstring,loopresult);
                         }
