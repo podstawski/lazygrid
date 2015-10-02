@@ -65,6 +65,10 @@
                                     
                     
                     data=r.data;
+                    if (data.length==0) {
+                        var html2=opt.zeroresults({options:r.options,system:r.x_system});
+                        $(html2).appendTo(opt.results).fadeIn(200);
+                    }
                     for(i=0;i<data.length;i++)
                     {
                         html2=$.lazygrid_smekta(html,data[i]);
@@ -165,6 +169,10 @@
             winheight: $(window).height(),
             eachrow: function (row,i,options) {
                 $.lazygrid_log("NATIVE ROW NOP: "+i);
+            },
+            zeroresults: function (options) {
+                $.lazygrid_log("ZERO");
+                return '';
             }
         },options);
         
@@ -172,6 +180,7 @@
             opt.template=$(this).html();
         }
         
+        $.lazygrid_log('TEMPLATE: '+opt.template);
         
         return this;
     };
